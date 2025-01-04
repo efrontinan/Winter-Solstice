@@ -2,18 +2,35 @@ body {
     background: linear-gradient(to top, #040409, #11122a, #1F214D, #50366F, #BF3475, #EE6C45, #FFCE61, #FFE58A);
     background-size: 100% 800%;
     color: #eee;
-    animation: change-background 10s linear forwards;
+    animation: change-background 8s linear forwards;
     padding: 24px;
+    font-family: "Vazirmatn", serif;
+    font-weight: 200;
 }
 
+/*HEADER */
+
 header {
-    height: 100vh;
+    height: 95vh;
     width: 100%;
+}
+
+h1 {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-size: 40px;
+    font-style: normal;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 200;
 }
 
 #moonDiv {
     width: 100%;
-    height: 50dvh;
+    height: 60dvh;
     overflow: hidden;
 }
 
@@ -22,25 +39,25 @@ header {
     width: 100px;
     border-radius: 100px;
     background: transparent;
-    position: relative;
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: moon-movement 10s linear forwards;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    animation: arc 10s forwards;
+    margin: 0 24px 0 40px;
+
 }
 
-#sun {
+#moon:before {
+    content: '';
+    background-color: #eee;
+    position: absolute;
+    border-radius: 100px;
+    left: -420px;
+    top: 6px;
     height: 100px;
     width: 100px;
-    border-radius: 100px;
-    background-color: #eee;
-    position: relative;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: sun-movement 10s linear forwards;
-
 }
+
 
 @keyframes change-background {
     0% {
@@ -60,42 +77,100 @@ header {
     }
 }
 
-@keyframes sun-movement {
+@keyframes arc {
     0% {
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-100%, -100%) rotate(0deg);
     }
 
-    50% {
-        top: 50%;
-        left: 70%;
-        transform: translateX(-50%);
+    10% {
+        transform: translate(-100%, -100%) rotate(0deg);
     }
 
     100% {
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-0%, -00%) rotate(180deg);
     }
 }
 
-@keyframes moon-movement {
+/*MAIN-NAV */
+
+#main-nav {
+    background-color: #11122a;
+    border-radius: 100px;
+    width: auto;
+    position: fixed;
+    left: 40px;
+    right: 40px;
+    bottom: 20px;
+    animation: change-nav 6s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes change-nav {
     0% {
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
+        background-color: #11122a;
     }
 
     50% {
-        top: 50%;
-        left: 20%;
-        transform: translateX(-50%);
+        background-color: #BF3475;
     }
 
     100% {
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%);
+        background-color: #FFE58A;
+    }
+}
+
+#main-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 16px;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: #eee;
+    animation: change-a 6s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes change-a {
+    0% {
+        color: #eee;
+    }
+
+    50% {
+        color: #eee;
+    }
+
+    100% {
+        color: #040409;
+    }
+}
+
+/*STARS*/
+.stars {
+    background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+    background-blend-mode: lighten;
+    opacity: 30%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 0;
+    animation: change-stars 10s forwards;
+}
+
+@keyframes change-stars {
+    0% {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 30%;
     }
 }
