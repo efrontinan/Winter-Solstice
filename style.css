@@ -1,5 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: linear-gradient(to top, #040409, #11122a, #1F214D, #50366F, #BF3475, #EE6C45, #FFCE61, #FFE58A);
+    background: linear-gradient(to top, #0A0A18, #040409, #11122a, #1F214D, #50366F, #BF3475, #EE6C45, #FFCE61, #FFE58A);
     background-size: 100% 800%;
     color: #eee;
     animation: change-background 8s linear forwards;
@@ -16,9 +20,14 @@ header {
 }
 
 h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
     font-family: "Bebas Neue", serif;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 80px;
     font-style: normal;
     text-align: center;
 }
@@ -123,6 +132,7 @@ h2 {
     display: flex;
     justify-content: space-around;
     padding: 8px 16px;
+    list-style: none;
 }
 
 #main-nav a {
@@ -130,6 +140,10 @@ h2 {
     color: #eee;
     animation: change-a 6s linear forwards;
     animation-delay: 2s;
+}
+
+#main-nav a.active {
+    font-weight: 600;
 }
 
 @keyframes change-a {
@@ -158,6 +172,8 @@ h2 {
     right: 0;
     display: block;
     z-index: 0;
+    margin: 24px;
+    border-radius: 16px;
     animation: change-stars 10s forwards;
 }
 
@@ -173,4 +189,54 @@ h2 {
     100% {
         opacity: 30%;
     }
+}
+
+/* SECTION 1. INTRODUCTION*/
+
+#introduction {
+    min-height: 50dvh;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 24px;
+}
+
+#introduction .photoDiv {
+    width: 40vw;
+    background-image: url('./assets/DALL·E\ 2025-01-06\ 00.36.23\ -\ A\ serene\ winter\ solstice\ scene\ featuring\ a\ snowy\ landscape\ under\ a\ starry\ night\ sky.\ The\ full\ moon\ shines\ brightly\,\ casting\ a\ gentle\ glow\ on\ a\ quiet\ f.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    border-radius: 40px;
+}
+
+#introduction .textDiv {
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+section h2 {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-size: 40px;
+    font-style: normal;
+    text-align: center;
+}
+
+/* SECTION 2. science*/
+
+#science {
+    min-height: 50dvh;
+    padding: 20px 24px;
+}
+
+#science .textDiv {
+    display: flex;
+    gap: 40px;
+}
+
+#science .textDiv p {
+    width: 100%;
 }
