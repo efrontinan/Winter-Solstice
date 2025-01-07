@@ -14,7 +14,7 @@ header.insertBefore(newDiv, header.children[0])
 const h1 = document.querySelector('h1')
 
 const h2 = document.createElement('h2')
-h2.textContent = 'The shortest night'
+h2.textContent = 'The longest night'
 
 header.insertBefore(h2, header.children[2])
 
@@ -84,3 +84,75 @@ section2p.forEach(elm => {
 
 section2.insertBefore(textDivs2, section2.children[1])
 
+/*SECTION 3 */
+
+const section3 = document.querySelector('#hemispheres')
+
+const hemispheresDiv = document.createElement('div')
+hemispheresDiv.id = 'hemispheresInfo'
+
+const photoDivs3 = document.createElement('div')
+photoDivs3.classList = 'photoDiv'
+
+const filter = document.createElement('div')
+filter.id = 'filter'
+
+photoDivs3.appendChild(filter)
+
+const s3articles = document.querySelectorAll('#hemispheres article')
+
+s3articles.forEach(elm => {
+    hemispheresDiv.appendChild(elm)
+})
+
+hemispheresDiv.insertBefore(photoDivs3, hemispheresDiv.children[1])
+
+section3.insertBefore(hemispheresDiv, section3.children[2])
+
+document.addEventListener('scroll', () => {
+    const northernHemisphere = document.getElementById('northern-hemisphere')
+    const southernHemisphere = document.getElementById('southern-hemisphere')
+
+    const sectionHeight = section3.offsetHeight
+    const scrollPosition = window.scrollY + window.innerHeight / 2
+
+    const upperHalf = sectionHeight / 2
+
+    if (scrollPosition < section3.offsetTop + upperHalf) {
+        northernHemisphere.style.color = '#eee'
+        southernHemisphere.style.color = '#939393'
+        photoDivs3.style.justifyContent = 'flex-end'
+    } else {
+        northernHemisphere.style.color = '#939393'
+        southernHemisphere.style.color = '#eee'
+        photoDivs3.style.justifyContent = 'flex-start'
+    }
+})
+
+/*SECTION 4. CELEBRATIONS */
+
+const section4 = document.querySelector('#celebrations')
+
+const articlesDiv = document.createElement('div')
+articlesDiv.classList = 'articlesDiv'
+
+const section4articles = document.querySelectorAll('#celebrations article')
+
+section4articles.forEach((elm) => {
+
+    const newDiv = document.createElement('div')
+    newDiv.classList = `card-content`
+
+    const h3 = document.querySelector(`#${elm.id} h3`)
+    const p = document.querySelector(`#${elm.id} p`)
+
+    newDiv.appendChild(h3)
+    newDiv.appendChild(p)
+
+    elm.appendChild(newDiv)
+
+    articlesDiv.appendChild(elm)
+
+})
+
+section4.appendChild(articlesDiv)

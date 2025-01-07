@@ -10,6 +10,47 @@ body {
     padding: 24px;
     font-family: "Vazirmatn", serif;
     font-weight: 200;
+    padding-bottom: 15dvh;
+}
+
+@keyframes change-background {
+    0% {
+        background-position: 50% 0%;
+        color: #333;
+
+    }
+
+    50% {
+        background-position: 50% 50%;
+        color: #333;
+    }
+
+    100% {
+        background-position: 50% 100%;
+        color: #eee;
+    }
+}
+
+.photoDiv {
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: imageAnimation;
+    animation-range: entry 35% cover 60%;
+    animation-fill-mode: both;
+}
+
+@keyframes imageAnimation {
+    from {
+        opacity: 0%;
+        scale: 25%;
+    }
+
+    to {
+        opacity: 100%;
+        scale: 100%;
+    }
 }
 
 /*HEADER */
@@ -35,6 +76,26 @@ h1 {
 h2 {
     text-align: center;
     font-weight: 200;
+}
+
+section h2 {
+    color: #11122a;
+    animation: change-h2 6s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes change-h2 {
+    0% {
+        color: #11122a;
+    }
+
+    50% {
+        color: #BF3475;
+    }
+
+    100% {
+        color: #FFE58A;
+    }
 }
 
 #moonDiv {
@@ -67,25 +128,6 @@ h2 {
     width: 100px;
 }
 
-
-@keyframes change-background {
-    0% {
-        background-position: 50% 0%;
-        color: #333;
-
-    }
-
-    50% {
-        background-position: 50% 50%;
-        color: #333;
-    }
-
-    100% {
-        background-position: 50% 100%;
-        color: #eee;
-    }
-}
-
 @keyframes arc {
     0% {
         transform: translate(-100%, -100%) rotate(0deg);
@@ -112,6 +154,7 @@ h2 {
     bottom: 20px;
     animation: change-nav 6s linear forwards;
     animation-delay: 2s;
+    z-index: 20;
 }
 
 @keyframes change-nav {
@@ -144,6 +187,7 @@ h2 {
 
 #main-nav a.active {
     font-weight: 600;
+
 }
 
 @keyframes change-a {
@@ -225,7 +269,7 @@ section h2 {
     text-align: center;
 }
 
-/* SECTION 2. science*/
+/* SECTION 2. SCIENCE*/
 
 #science {
     min-height: 50dvh;
@@ -234,9 +278,194 @@ section h2 {
 
 #science .textDiv {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
 }
 
 #science .textDiv p {
+    width: 30%;
+    min-width: 240px;
+}
+
+/* SECTION 3. HEMISPHERES*/
+
+#hemispheres {
+    min-height: 50dvh;
+    padding: 20px 24px;
+}
+
+#hemispheresInfo {
+    display: flex;
+
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+#hemispheresInfo>* {
+    width: 30%;
+    min-width: 240px;
+    min-height: 30vh;
+}
+
+#hemispheresInfo>article {
+    height: 75dvh;
+}
+
+#southern-hemisphere {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: end;
+}
+
+#hemispheres .photoDiv {
+    background-image: url('./assets/pngtree-earth-globe-isolated-png-image_12507976.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#filter {
+    height: 50%;
     width: 100%;
+    background-color: #0A0A18;
+    background-blend-mode: darken;
+    opacity: 40%;
+}
+
+/* SECTION 4. CELEBRATIONS*/
+
+#celebrations {
+    min-height: 50dvh;
+    padding: 20px 24px;
+}
+
+#celebrations .articlesDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5vw;
+    justify-content: space-between;
+}
+
+#celebrations .articlesDiv article {
+    width: max(47%, 300px);
+    height: 50dvh;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+#celebrations .card-content {
+    position: relative;
+    padding: 8px 20px;
+    background-color: #11122a;
+    color: #eee;
+    border-top-left-radius: 20px;
+    transform: translateY(70%);
+    transition: transform 0.3s;
+    animation: change-card-content 6s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes change-card-content {
+    0% {
+        background-color: #11122a;
+        color: #eee;
+    }
+
+    50% {
+        background-color: #BF3475;
+        color: #eee;
+    }
+
+    100% {
+        background-color: #FFE58A;
+        color: #040409;
+    }
+}
+
+#celebrations .card-content:hover {
+    transform: translateY(0);
+}
+
+#newgrange {
+    background-image: url('./assets/cover_newgrange_winter_solstice_2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#intiraymi {
+    background-image: url('./assets/inti-raymi-tickets-05-143.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#modranicht {
+    background-image: url('./assets/images.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#koliada {
+    background-image: url('./assets/tumblr_phzyvtAVZj1vbjee7_500.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-content h3 {
+    padding-bottom: 24px;
+}
+
+.card-content p {
+    color: #333;
+    animation: change-card-content-p 6s linear forwards;
+    animation-delay: 2s;
+}
+
+@keyframes change-card-content-p {
+    0% {
+        color: #eee;
+    }
+
+    50% {
+        color: #eee;
+    }
+
+    100% {
+        color: #040409;
+    }
+}
+
+/*FOOTER */
+
+#footer-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    padding: 24px;
+}
+
+#footer-nav a {
+    color: #FFE58A;
+    text-decoration: none;
+}
+
+#footer-nav a:hover {
+    color: #FFCE61;
+    text-decoration: underline;
+}
+
+#footer-nav li {
+    list-style: none;
 }
