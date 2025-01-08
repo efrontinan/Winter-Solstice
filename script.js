@@ -23,7 +23,23 @@ stars.classList = 'stars'
 
 header.insertBefore(stars, header.children[0])
 
+window.addEventListener('scroll', () => {
+    const maxScroll = 500
+    const scrollPosition = window.scrollY
+    let scale = 1 - (scrollPosition / maxScroll) * 0.25
+
+    if (scale < 0.75) {
+        scale = 0.75
+    }
+
+    header.style.transform = `scale(${scale})`
+})
+
 /* NAVLINK */
+
+const body = document.querySelector('body')
+const navBar = document.querySelector('#main-nav')
+body.appendChild(navBar)
 
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll('section')
@@ -44,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
-    }, { threshold: 1 })
+    }, { threshold: 0.5 })
 
     sections.forEach(section => observer.observe(section))
 })
@@ -156,3 +172,14 @@ section4articles.forEach((elm) => {
 })
 
 section4.appendChild(articlesDiv)
+
+/*BACK TO TOP */
+
+const backToTopBtn = document.querySelector('#footer-nav ul li a')
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
+})

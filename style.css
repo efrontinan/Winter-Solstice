@@ -6,11 +6,12 @@ body {
     background: linear-gradient(to top, #0A0A18, #040409, #11122a, #1F214D, #50366F, #BF3475, #EE6C45, #FFCE61, #FFE58A);
     background-size: 100% 800%;
     color: #eee;
-    animation: change-background 8s linear forwards;
+    animation: change-background 4s linear forwards;
     padding: 24px;
     font-family: "Vazirmatn", serif;
     font-weight: 200;
     padding-bottom: 15dvh;
+    overflow: visible;
 }
 
 @keyframes change-background {
@@ -53,11 +54,13 @@ body {
     }
 }
 
-/*HEADER */
+/* GENERAL */
 
 header {
     height: 95vh;
     width: 100%;
+    position: sticky;
+    top: 0px;
 }
 
 h1 {
@@ -79,24 +82,28 @@ h2 {
 }
 
 section h2 {
-    color: #11122a;
-    animation: change-h2 6s linear forwards;
+    color: #FFCE61;
     animation-delay: 2s;
 }
 
-@keyframes change-h2 {
-    0% {
-        color: #11122a;
-    }
 
-    50% {
-        color: #BF3475;
-    }
-
-    100% {
-        color: #FFE58A;
-    }
+section,
+footer {
+    position: relative;
+    background-color: #11122a;
+    z-index: 20;
 }
+
+section:nth-of-type(1) {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+footer {
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
 
 #moonDiv {
     width: 100%;
@@ -112,7 +119,7 @@ section h2 {
     position: absolute;
     top: 40%;
     left: 40%;
-    animation: arc 10s forwards;
+    animation: arc 5s forwards;
     margin: 0 24px 0 40px;
 
 }
@@ -152,9 +159,9 @@ section h2 {
     left: 40px;
     right: 40px;
     bottom: 20px;
-    animation: change-nav 6s linear forwards;
+    animation: change-nav 3s linear forwards;
     animation-delay: 2s;
-    z-index: 20;
+    z-index: 100;
 }
 
 @keyframes change-nav {
@@ -181,7 +188,7 @@ section h2 {
 #main-nav a {
     text-decoration: none;
     color: #eee;
-    animation: change-a 6s linear forwards;
+    animation: change-a 3s linear forwards;
     animation-delay: 2s;
 }
 
@@ -218,7 +225,7 @@ section h2 {
     z-index: 0;
     margin: 24px;
     border-radius: 16px;
-    animation: change-stars 10s forwards;
+    animation: change-stars 5s forwards;
 }
 
 @keyframes change-stars {
@@ -331,7 +338,7 @@ section h2 {
 #filter {
     height: 50%;
     width: 100%;
-    background-color: #0A0A18;
+    background-color: #11122a;
     background-blend-mode: darken;
     opacity: 40%;
 }
@@ -369,7 +376,7 @@ section h2 {
     border-top-left-radius: 20px;
     transform: translateY(70%);
     transition: transform 0.3s;
-    animation: change-card-content 6s linear forwards;
+    animation: change-card-content 3s linear forwards;
     animation-delay: 2s;
 }
 
@@ -428,7 +435,7 @@ section h2 {
 
 .card-content p {
     color: #333;
-    animation: change-card-content-p 6s linear forwards;
+    animation: change-card-content-p 3s linear forwards;
     animation-delay: 2s;
 }
 
@@ -444,6 +451,12 @@ section h2 {
     100% {
         color: #040409;
     }
+}
+
+#traditions,
+#conclusion,
+footer {
+    padding: 20px 24px;
 }
 
 /*FOOTER */
