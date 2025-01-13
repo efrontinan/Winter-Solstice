@@ -1,10 +1,14 @@
+* {
+    margin: 0px;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: linear-gradient(to top, #0A0A18, #040409, #11122a, #1F214D, #50366F, #BF3475, #EE6C45, #FFCE61, #FFE58A);
-    background-size: 100% 800%;
+
+    background-color: #040409;
     color: #eee;
     animation: change-background 4s linear forwards;
     padding: 24px;
@@ -12,63 +16,75 @@ body {
     font-weight: 200;
     padding-bottom: 15dvh;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes change-background {
     0% {
-        background-position: 50% 0%;
+        background-color: #FFE58A;
         color: #333;
 
     }
 
-    50% {
-        background-position: 50% 50%;
+    10% {
+        background-color: #FFCE61;
         color: #333;
+    }
+
+    30% {
+        background-color: #EE6C45;
+        color: #333;
+    }
+
+    450% {
+        background-color: #BF3475;
+        color: #eee;
+    }
+
+    60% {
+        background-color: #50366F;
+        color: #eee;
+    }
+
+    75% {
+        background-color: #1F214D;
+        color: #eee;
+    }
+
+    90% {
+        background-color: #11122a;
+        color: #eee;
+    }
+
+    95% {
+        background-color: #040409;
+        color: #eee;
     }
 
     100% {
-        background-position: 50% 100%;
+        background-color: #0A0A18;
         color: #eee;
     }
 }
 
-.photoDiv {
-    view-timeline-name: --image;
-    view-timeline-axis: block;
-
-    animation-timeline: --image;
-    animation-name: imageAnimation;
-    animation-range: entry 35% cover 60%;
-    animation-fill-mode: both;
-}
-
-@keyframes imageAnimation {
-    from {
-        opacity: 0%;
-        scale: 25%;
-    }
-
-    to {
-        opacity: 100%;
-        scale: 100%;
-    }
-}
-
-/* GENERAL */
+/* HEADER */
 
 header {
     height: 95vh;
     width: 100%;
     position: sticky;
     top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
 }
 
 h1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    position: relative;
     width: 40%;
-    transform: translate(-50%, -50%);
     font-family: "Bebas Neue", serif;
     font-weight: 400;
     font-size: 80px;
@@ -81,34 +97,12 @@ h2 {
     font-weight: 200;
 }
 
-section h2 {
-    color: #FFCE61;
-    animation-delay: 2s;
-}
-
-
-section,
-footer {
-    position: relative;
-    background-color: #11122a;
-    z-index: 20;
-}
-
-section:nth-of-type(1) {
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-}
-
-footer {
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-}
-
-
 #moonDiv {
     width: 100%;
-    height: 60dvh;
-    overflow: hidden;
+    height: 40dvh;
+    bottom: 10dvh;
+    position: absolute;
+    overflow: visible;
 }
 
 #moon {
@@ -146,6 +140,38 @@ footer {
 
     100% {
         transform: translate(-0%, -00%) rotate(180deg);
+    }
+}
+
+/*STARS*/
+
+.stars {
+    background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+    background-blend-mode: lighten;
+    opacity: 30%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 0;
+    margin: 24px;
+    border-radius: 16px;
+    animation: change-stars 5s forwards;
+}
+
+@keyframes change-stars {
+    0% {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 30%;
     }
 }
 
@@ -211,35 +237,32 @@ footer {
     }
 }
 
-/*STARS*/
-.stars {
-    background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
-    background-blend-mode: lighten;
-    opacity: 30%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    z-index: 0;
-    margin: 24px;
-    border-radius: 16px;
-    animation: change-stars 5s forwards;
+/* SECTION */
+
+section h2 {
+    color: #FFCE61;
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-size: 40px;
+    font-style: normal;
+    text-align: center;
 }
 
-@keyframes change-stars {
-    0% {
-        opacity: 0%;
-    }
+section,
+footer {
+    position: relative;
+    background-color: #11122a;
+    z-index: 20;
+}
 
-    50% {
-        opacity: 0%;
-    }
+section:nth-of-type(1) {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
 
-    100% {
-        opacity: 30%;
-    }
+footer {
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 
 /* SECTION 1. INTRODUCTION*/
@@ -268,14 +291,6 @@ footer {
     align-items: baseline;
 }
 
-section h2 {
-    font-family: "Bebas Neue", serif;
-    font-weight: 400;
-    font-size: 40px;
-    font-style: normal;
-    text-align: center;
-}
-
 /* SECTION 2. SCIENCE*/
 
 #science {
@@ -286,7 +301,7 @@ section h2 {
 #science .textDiv {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 24px;
 }
 
 #science .textDiv p {
@@ -459,8 +474,6 @@ footer {
     padding: 20px 24px;
 }
 
-/*FOOTER */
-
 #footer-nav ul {
     display: flex;
     flex-direction: row;
@@ -481,4 +494,149 @@ footer {
 
 #footer-nav li {
     list-style: none;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body {
+        padding: 8px;
+        align-items: center;
+        padding-bottom: 5dvh;
+        gap: 0px;
+    }
+
+    header {
+        width: calc(100% - 24px);
+    }
+
+    h1 {
+        width: 100%;
+        font-size: 52px;
+        margin-top: 10vh;
+    }
+
+    #moonDiv {
+        top: 10vw;
+    }
+
+    #moon {
+        height: 50px;
+        width: 30px;
+        top: 50%;
+        left: 30%;
+    }
+
+    #moon:before {
+        height: 50px;
+        width: 50px;
+        left: -100px;
+    }
+
+    #main-nav {
+        width: auto;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        overflow: scroll;
+    }
+
+    #main-nav ul {
+        justify-content: space-around;
+        gap: 16px;
+        padding: 8px 16px;
+    }
+
+    #main-nav a {
+        position: relative;
+        display: block;
+        width: max-content;
+    }
+
+    section h2 {
+        font-size: 28px;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    #introduction {
+        flex-direction: column;
+        gap: 16px;
+        min-height: auto;
+    }
+
+    #introduction .photoDiv {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #introduction .textDiv {
+        width: 100%;
+    }
+
+    #science {
+        min-height: auto;
+        width: calc(100% - 48px);
+    }
+
+    #science .textDiv {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 24px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    #science .textDiv p {
+        min-width: 90%;
+        scroll-snap-align: start;
+        margin-bottom: 16px;
+    }
+
+    #hemispheres {
+        min-height: auto;
+        width: calc(100% - 48px);
+    }
+
+    #hemispheresInfo {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px 0px;
+    }
+
+    #hemispheresInfo>* {
+        min-width: 100%;
+        min-height: 30vh;
+    }
+
+    #hemispheresInfo>article {
+        height: auto;
+    }
+
+    #filter {
+        height: 100px;
+    }
+
+    #celebrations .articlesDiv article {
+        width: 100%;
+        height: 60vh;
+    }
+
+    #celebrations .card-content {
+        transform: translateY(80%);
+    }
+
+    #celebrations .card-content:focus {
+        transform: translateY(0);
+    }
+
+
+    #main-footer {
+        width: calc(100% - 48px);
+    }
+
 }
